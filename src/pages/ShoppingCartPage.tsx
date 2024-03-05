@@ -28,9 +28,7 @@ const ShoppingCartPage = () => {
 
   const truncateTitle = (title: string, numOfWords: number) => {
     const words = title.trim().split(' ') // Split string by spaces
-    console.log('title words: ' + words.length)
     const truncated = words.slice(0, numOfWords).join(' ') // Truncate to the specified number of words
-    console.log('truncated words: ' + truncated.length)
 
     // Check if the length of the original title is less than or equal to the length of the truncated title
     if (words.length <= numOfWords) {

@@ -1,5 +1,33 @@
-# React + TypeScript + Vite
+# Technical task for an interview. 
+## Acceptance criteria
+- [x] The customer is presented with a grid of available product offerings, including title, image,
+and price.
+- [x] The customer can filter product selection based on category.
+- [x] The customer should be able to search for a specific product based on title or description.
+- [x] The customer can click a product to get a detailed page with title, image, price, and
+description of the selected product.
+- [x] The customer should be able to add the product to a session-based shopping cart.
 
+## Technical requirements
+- [x] The web shop should be a responsive web application.
+- [x] The application must function as a single page application (SPA) and not reload the page
+between views.
+- [x] You can choose your own SPA framework (Used ReactJS).
+- [x] The application should handle state of the shopping cart items.
+- [ ] (Optional) The user should be able to sign up and login to save shopping cart for late visits.
+
+## Improvements
+- [ ] Implement Context to handle cart items.
+- [ ] Move functions to add or remove products to cart into context.
+- [ ] Add to cart button on product cards.
+- [ ] Add a badge over "Cart" in navigation to show quantity in cart.
+- [ ] Authenticate login with credentials from API.
+- [ ] If user is logged in, change the stored cart items in local storage instead of session storage.
+- [ ] If user is logged in, change "Login" in navigation to users username.
+- [ ] Add pagination on products page for futureproofing gridview of products.
+- [ ] Change filter by category to "cloud map" to select more than one category. 
+
+# React + TypeScript + Vite
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:
