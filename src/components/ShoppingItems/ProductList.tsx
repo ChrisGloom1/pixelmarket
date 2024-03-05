@@ -58,12 +58,9 @@ const ProductList = () => {
   }
 
   const filteredProducts = products.filter(product => {
-    // Filter by selected category
     if (selectedCategory && product.category !== selectedCategory) {
       return false
     }
-
-    // Filter by search query
     if (
       searchQuery &&
       !(
@@ -73,7 +70,6 @@ const ProductList = () => {
     ) {
       return false
     }
-
     return true
   })
 

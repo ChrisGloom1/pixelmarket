@@ -1,3 +1,5 @@
+import { useState } from 'react'
+
 export type TProductDetailProps = {
   id: number
   title: string
@@ -16,7 +18,7 @@ export type TCartItem = {
   image: string
   title: string
   price: number
-  updateCart: (cartItems: TCartItem[]) => void
+  updateCart?: (cartItems: TCartItem[]) => void
 }
 
 const ProductDetail: React.FC<TProductDetailProps> = ({
@@ -27,6 +29,9 @@ const ProductDetail: React.FC<TProductDetailProps> = ({
   image,
   rating,
 }) => {
+  const [productBoughtFeedback, setProductBoughtFeedback] =
+    useState<boolean>(false)
+
   const addToCart = (cartItem: TCartItem) => {
     const existingCart = sessionStorage.getItem('cart')
     const cartItems: TCartItem[] = existingCart ? JSON.parse(existingCart) : []
@@ -46,6 +51,11 @@ const ProductDetail: React.FC<TProductDetailProps> = ({
 
     // Update the cart in the session storage
     sessionStorage.setItem('cart', JSON.stringify(cartItems))
+
+    setProductBoughtFeedback(true)
+    setTimeout(() => {
+      setProductBoughtFeedback(false)
+    }, 2000)
   }
 
   return (
@@ -81,6 +91,11 @@ const ProductDetail: React.FC<TProductDetailProps> = ({
           </button>
         </div>
       </div>
+      {productBoughtFeedback && (
+        <div className='text-center mt-4 bg-green-400 rounded-xl border py-4 shadow-md'>
+          Product added to cart!
+        </div>
+      )}
     </div>
   )
 }

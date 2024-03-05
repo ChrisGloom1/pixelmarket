@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react'
 import { TCartItem } from '../components/ShoppingItems/ProductDetail'
 import ShoppingCartList from '../components/ShoppingCart/ShoppingCartList'
+import { validRange } from 'semver'
 
 const ShoppingCartPage = () => {
   const [cartItems, setCartItems] = useState<TCartItem[]>([])
+  const [numOfWordsInTitle, setNumOfWordsInTitle] = useState<number>(3)
 
   useEffect(() => {
     const existingCart = sessionStorage.getItem('cart')
@@ -25,6 +27,36 @@ const ShoppingCartPage = () => {
     setCartItems([])
   }
 
+  const truncateTitle = (title: string, numOfWords: number) => {
+    const words = title.trim().split(' ') // Split string by spaces
+    console.log('title words: ' + words.length)
+    const truncated = words.slice(0, numOfWords).join(' ') // Truncate to the specified number of words
+    console.log('truncated words: ' + truncated.length)
+
+    // Check if the length of the original title is less than or equal to the length of the truncated title
+    if (words.length <= numOfWords) {
+      return title
+    } else {
+      return truncated + '...'
+    }
+  }
+
+  useEffect(() => {
+    const handleTitleLengthChange = () => {
+      if (window.innerWidth < 400) {
+        setNumOfWordsInTitle(3)
+      } else if (window.innerWidth < 768) {
+        setNumOfWordsInTitle(8)
+      } else if (window.innerWidth < 1024) {
+        setNumOfWordsInTitle(12)
+      } else {
+        setNumOfWordsInTitle(100)
+      }
+    }
+    handleTitleLengthChange()
+    window.addEventListener('resize', handleTitleLengthChange)
+  }, [])
+
   return (
     <div className='w-4/5 mx-auto'>
       <div>
@@ -35,7 +67,7 @@ const ShoppingCartPage = () => {
                 key={item.id}
                 id={item.id}
                 image={item.image}
-                title={item.title}
+                title={truncateTitle(item.title, numOfWordsInTitle)}
                 price={item.price}
                 quantity={item.quantity}
                 setCartItems={setCartItems}
@@ -50,7 +82,7 @@ const ShoppingCartPage = () => {
           </div>
         )}
         <button
-          className={`bg-green-400 rounded-md px-4 py-2 shadow-sm border mt-4 ${
+          className={`bg-green-400 rounded-md px-4 py-2 shadow-sm border mt-4 hover:bg-green-500 ${
             cartItems.length === 0 && 'hidden'
           }`}
           onClick={() => handleBuyButton()}

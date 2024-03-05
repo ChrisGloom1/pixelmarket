@@ -5,14 +5,16 @@ const Logo: React.FC = () => {
   return (
     <Link
       to={'/'}
-      className='w-16 h-16 flex items-center'
+      className='w-10 h-10 flex items-center lg:h-16 lg:w-16'
     >
       <img
         src={logo}
         alt='logo'
         className='hidden md:block'
       />
-      <h1 className='text-white ml-4 text-md md:text-xl'>PixelMarket</h1>
+      <h1 className='text-white ml-0 text-md lg:text-xl md:ml-4'>
+        PixelMarket
+      </h1>
     </Link>
   )
 }

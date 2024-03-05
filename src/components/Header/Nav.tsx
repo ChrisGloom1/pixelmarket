@@ -6,19 +6,13 @@ const NavLinks = () => {
   return (
     <>
       <NavLink to='/'>
-        <div className='hover:text-white text-xl md:text-md sm:text-sm'>
-          Products
-        </div>
+        <div className='hover:text-white text-sm'>Products</div>
       </NavLink>
       <NavLink to='shopping-cart'>
-        <div className='hover:text-white text-xl md:text-md sm:text-sm'>
-          Cart
-        </div>
+        <div className='hover:text-white text-sm'>Cart</div>
       </NavLink>
       <NavLink to='login'>
-        <div className='hover:text-white text-xl md:text-md sm:text-sm'>
-          Login
-        </div>
+        <div className='hover:text-white text-sm'>Login</div>
       </NavLink>
     </>
   )
@@ -38,14 +32,14 @@ const Nav = () => {
         <div className='text-gray-200 hidden w-full justify-between md:flex'>
           <NavLinks />
         </div>
-        <div className='md:hidden'>
+        <div className='block md:hidden'>
           <button onClick={toggleNavbar}>
             {isOpen ? <X color='#E4E7EB' /> : <Menu color='#E4E7EB' />}
           </button>
         </div>
       </nav>
       {isOpen && (
-        <div className='text-gray-200 flex flex-col basis-full items-center '>
+        <div className='text-gray-200 flex flex-col basis-full items-center md:hidden'>
           <NavLinks />
         </div>
       )}

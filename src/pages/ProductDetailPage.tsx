@@ -30,7 +30,6 @@ const ProductDetailPage = () => {
           title={product.title}
           price={product.price}
           description={product.description}
-          category={product.category}
           image={product.image}
           rating={product.rating}
         />

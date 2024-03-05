@@ -1,4 +1,3 @@
-import { Trash } from 'lucide-react'
 import { TCartItem } from '../ShoppingItems/ProductDetail'
 
 type TShoppingCartListProps = {
@@ -85,15 +84,13 @@ const ShoppingCartList: React.FC<TShoppingCartListProps> = ({
             className='w-16 h-16 object-contain min-w-14'
           />
         </div>
-        {/* price and quantity */}
         <div>
           <div className='flex-grow mt-2'>
-            <h3 className='font-semibold text-sm md:text-lg'>{title}</h3>
+            <h3 className='font-semibold text-xs md:text-lg'>{title}</h3>
             <p className='text-gray-700 text-xs md:text-md'>
               Price: ${price.toFixed(2)}
             </p>
           </div>
-
           <div className='flex items-center mb-4 mt-2 text-center text-xs'>
             <button
               className='px-2 py-1 border rounded bg-gray-200 hover:bg-gray-300'
@@ -111,7 +108,6 @@ const ShoppingCartList: React.FC<TShoppingCartListProps> = ({
           </div>
         </div>
       </div>
-      {/* remove button */}
       <div className='ml-4 flex flex-col items-end justify-center sm:pl-6'>
         <button
           className='px-4 py-2 border rounded bg-red-600 text-white hover:bg-red-700 shadow-sm text-xs md:text-sm'
