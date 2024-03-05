@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import { TCartItem } from '../components/ShoppingItems/ProductDetail'
 import ShoppingCartList from '../components/ShoppingCart/ShoppingCartList'
-import { validRange } from 'semver'
 
 const ShoppingCartPage = () => {
   const [cartItems, setCartItems] = useState<TCartItem[]>([])

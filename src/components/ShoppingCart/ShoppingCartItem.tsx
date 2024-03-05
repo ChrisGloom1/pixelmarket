@@ -1,11 +1,9 @@
 import { TCartItem } from '../ShoppingItems/ProductDetail'
 
 const ShoppingCartItem: React.FC<TCartItem> = ({
-  id,
   image,
   title,
   price,
-  quantity,
 }) => {
   return (
     <div className='flex items-center justify-between border-b p-4'>
