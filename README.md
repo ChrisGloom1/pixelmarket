@@ -25,7 +25,8 @@ between views.
 - [ ] If user is logged in, change the stored cart items in local storage instead of session storage.
 - [ ] If user is logged in, change "Login" in navigation to users username.
 - [ ] Add pagination on products page for futureproofing gridview of products.
-- [ ] Change filter by category to "cloud map" to select more than one category. 
+- [ ] Change filter by category to "cloud map" to select more than one category.
+- [ ] Apply safe routes when navigating outside of navigation parameters. 
 
 # React + TypeScript + Vite
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
