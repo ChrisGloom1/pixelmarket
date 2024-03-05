@@ -7,7 +7,7 @@ const ShoppingCartPage = () => {
   const [numOfWordsInTitle, setNumOfWordsInTitle] = useState<number>(3)
 
   useEffect(() => {
-    const existingCart = sessionStorage.getItem('cart')
+    const existingCart: string | null = sessionStorage.getItem('cart')
     const cartItems: TCartItem[] = existingCart ? JSON.parse(existingCart) : []
     setCartItems(cartItems)
   }, [])
@@ -27,8 +27,8 @@ const ShoppingCartPage = () => {
   }
 
   const truncateTitle = (title: string, numOfWords: number) => {
-    const words = title.trim().split(' ') // Split string by spaces
-    const truncated = words.slice(0, numOfWords).join(' ') // Truncate to the specified number of words
+    const words: string[] = title.trim().split(' ') // Split string by spaces
+    const truncated: string = words.slice(0, numOfWords).join(' ') // Truncate to the specified number of words
 
     // Check if the length of the original title is less than or equal to the length of the truncated title
     if (words.length <= numOfWords) {

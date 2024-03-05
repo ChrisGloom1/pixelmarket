@@ -18,7 +18,7 @@ const ProductItem: React.FC<TProductItemProps> = ({
   return (
     <Link
       to={`/product/${id}`}
-      className='w-full border rounded-xl p-4 flex flex-col shadow-md sm:max-w-72'
+      className='w-full border rounded-xl p-4 flex flex-col shadow-md sm:max-w-72 lg:max-w-full'
     >
       <div className='mb-2 h-36 md:h-48'>
         <img
