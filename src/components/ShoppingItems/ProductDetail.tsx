@@ -1,5 +1,7 @@
 import { useState } from 'react'
 
+// Exported to reuse outside of component.
+// Could be sent to a file where types are used more than once.
 export type TProductDetailProps = {
   id: number
   title: string
@@ -12,6 +14,8 @@ export type TProductDetailProps = {
   }
 }
 
+// Exported to reuse outside of component.
+// Could be sent to a file where types are used more than once.
 export type TCartItem = {
   id: number
   quantity: number
@@ -63,25 +67,26 @@ const ProductDetail: React.FC<TProductDetailProps> = ({
       className='w-4/5 mx-auto mt-8 p-4 bg-white'
       key={id}
     >
-      <div className='flex flex-col md:flex-row items-start justify-between'>
-        <div className='w-full md:w-1/2 mb-4 md:mb-0 border p-4 rounded-3xl shadow-md mr-0 md:mr-4'>
+      <div className='flex flex-col items-start justify-between lg:flex-row lg:w-full '>
+        <div className='w-full mb-4 border p-4 rounded-3xl shadow-md mr-0 md:w-full md:mr-4 md:mb-0'>
           <img
             src={image}
             alt={title}
+            // object-contain makes sure the aspect ratio stays intact
             className='w-full max-h-96 object-contain'
           />
         </div>
-        <div className='w-full md:w-1/2 md:pl-4'>
+        <div className='w-full md:pl-4 md:mt-4'>
           <h1 className='text-3xl font-bold mb-4'>{title}</h1>
           <p className='text-gray-700 mb-4'>{description}</p>
-          <div className='flex justify-between my-6 flex-col md:flex-row'>
+          <div className='flex justify-between my-6 flex-col lg:flex-row'>
             <div className='flex items-center mb-2 text-gray-700'>
               <span className='mr-2'>Rating:</span>
               <span>
                 {rating.rate} / 5 ({rating.count})
               </span>
             </div>
-            <p className='text-lg mt-2 md:mt-0'>$ {price.toFixed(2)}</p>
+            <p className='text-lg mt-2 md:mt-0'>${price.toFixed(2)}</p>
           </div>
           <button
             className='bg-sky-700 text-white py-2 px-4 rounded-3xl hover:bg-sky-600'

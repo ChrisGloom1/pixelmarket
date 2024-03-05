@@ -8,6 +8,9 @@ const LoginPage = () => {
         When logged in you can save your shopping cart to next time you're
         visiting our page! How great isn't that? Sadly you won't be able to
         store your cart and retrieve it on other platforms.
+        <br />
+        <br />
+        This feature is for the future!
       </p>
       <div className='flex flex-col'>{/* <Login /> */}</div>
     </div>

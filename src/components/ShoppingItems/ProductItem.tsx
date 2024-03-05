@@ -24,6 +24,7 @@ const ProductItem: React.FC<TProductItemProps> = ({
         <img
           src={image}
           alt='product image'
+          // object-contain makes sure the aspect ratio stays intact
           className='w-full h-full object-contain'
         />
       </div>

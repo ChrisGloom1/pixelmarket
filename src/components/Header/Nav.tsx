@@ -28,7 +28,6 @@ const Nav = () => {
   return (
     <>
       <nav className='flex justify-end md:w-1/3'>
-        <div></div>
         <div className='text-gray-200 hidden w-full justify-between md:flex'>
           <NavLinks />
         </div>
@@ -39,6 +38,7 @@ const Nav = () => {
         </div>
       </nav>
       {isOpen && (
+        // Flex basis tries to take up the full width of its container
         <div className='text-gray-200 flex flex-col basis-full items-center md:hidden'>
           <NavLinks />
         </div>

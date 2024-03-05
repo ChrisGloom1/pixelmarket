@@ -1,10 +1,6 @@
 import { TCartItem } from '../ShoppingItems/ProductDetail'
 
-const ShoppingCartItem: React.FC<TCartItem> = ({
-  image,
-  title,
-  price,
-}) => {
+const ShoppingCartItem: React.FC<TCartItem> = ({ image, title, price }) => {
   return (
     <div className='flex items-center justify-between border-b p-4'>
       <img
@@ -14,7 +10,7 @@ const ShoppingCartItem: React.FC<TCartItem> = ({
       />
       <h3 className='text-lg'>{title}</h3>
       <p className='text-gray-700'></p>
-      <p className='text-gray-700'>$ {price}</p>
+      <p className='text-gray-700'>${price}</p>
     </div>
   )
 }

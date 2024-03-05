@@ -26,6 +26,7 @@ const ShoppingCartList: React.FC<TShoppingCartListProps> = ({
   }
 
   const updateCart = (cartItems: TCartItem[]) => {
+    // checks wether setCartItems exists because the function is optional in FC type
     if (setCartItems) {
       setCartItems(cartItems)
       sessionStorage.setItem('cart', JSON.stringify(cartItems))
@@ -36,7 +37,9 @@ const ShoppingCartList: React.FC<TShoppingCartListProps> = ({
     const cartItems: TCartItem[] = getExistingCart()
     const existingItemIndex = cartItems.findIndex(item => item.id === id)
 
+    // checks if existingItemIndex isn't -1, which means an item with the ID was found in the cart
     if (existingItemIndex !== -1) {
+      // If quantity is 1, remove the item, else decrement quantity with 1
       if (cartItems[existingItemIndex].quantity === 1) {
         cartItems.splice(existingItemIndex, 1)
       } else {
@@ -50,10 +53,12 @@ const ShoppingCartList: React.FC<TShoppingCartListProps> = ({
     const cartItems: TCartItem[] = getExistingCart()
     const productIndex = cartItems.findIndex(item => item.id === id)
 
+    // checks if existingItemIndex isn't -1, which means an item with the ID was found in the cart
     if (productIndex !== -1) {
       cartItems[productIndex].quantity += 1
     }
 
+    // checks wether setCartItems exists because the function is optional in FC type
     if (setCartItems) {
       setCartItems(cartItems)
       sessionStorage.setItem('cart', JSON.stringify(cartItems))
@@ -64,10 +69,12 @@ const ShoppingCartList: React.FC<TShoppingCartListProps> = ({
     const cartItems: TCartItem[] = getExistingCart()
     const productIndex = cartItems.findIndex(item => item.id === id)
 
+    // checks if existingItemIndex isn't -1, which means an item with the ID was found in the cart
     if (productIndex !== -1) {
       cartItems.splice(productIndex, 1)
     }
 
+    // checks wether setCartItems exists because the function is optional in FC type
     if (setCartItems) {
       setCartItems(cartItems)
       sessionStorage.setItem('cart', JSON.stringify(cartItems))

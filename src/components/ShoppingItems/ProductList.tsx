@@ -32,10 +32,11 @@ const ProductList = () => {
         const response = await axios.get('https://fakestoreapi.com/products')
         setProducts(response.data)
 
-        // Extract unique categories from the products for filtration
+        // Extract all categories from the products for filtration
         const allCategories: string[] = response.data.map(
           (product: TProduct) => product.category
         )
+        // Makes sure there's only unique values to sort products by
         const uniqueCategories: TCategory[] = [...new Set(allCategories)].map(
           category => ({
             name: category,
@@ -58,9 +59,13 @@ const ProductList = () => {
   }
 
   const filteredProducts = products.filter(product => {
+    // if selectedCategory exists and category prop of product is not the same as selectedCategory returns false. 
+    // Meaning the product doesn't pass the filter and is not included in filteredProducts.
     if (selectedCategory && product.category !== selectedCategory) {
       return false
     }
+    // if searchQuery exists and neither title nor description includes in the searchQuery returns false.
+    // Meaning the products doesn't pass the filter and is not included in filteredProducts.
     if (
       searchQuery &&
       !(
@@ -70,6 +75,8 @@ const ProductList = () => {
     ) {
       return false
     }
+    // If neither conditions are met the function returns true
+    // Meaning the product passes the filter and is included in filteredProducts.
     return true
   })
 

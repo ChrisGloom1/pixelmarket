@@ -5,6 +5,7 @@ import ProductDetail from '../components/ShoppingItems/ProductDetail'
 import { TProductDetailProps } from '../components/ShoppingItems/ProductDetail'
 
 const ProductDetailPage = () => {
+  // gets value(number) of key(id) from React Router /product/{key:value}
   const { id } = useParams()
   const [product, setProduct] = useState<TProductDetailProps | null>(null)
 
